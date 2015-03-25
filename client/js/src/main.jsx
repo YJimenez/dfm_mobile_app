@@ -5,7 +5,14 @@ $(function(){
 Meteor.subscribe('feeds', 
 	{
 		onReady : function(){
-			React.render(<SectionFront />, document.getElementById('the-content'));
+			var timeout;
+			timeout = setTimeout(function(){
+				if (Feeds.find().fetch().length) {
+					React.render(<SectionFront />, document.getElementById('the-content'));
+					clearTimeout(timeout);
+				}
+			}, 10);
+			
 		}
 	}
 );

@@ -15,10 +15,10 @@ Article = React.createClass({displayName: "Article",
 	render : function() {
 		return (
 			React.createElement("div", {className: "story_content"}, 
-				React.createElement("ul", {className: "breadcrumb"}, 
+				React.createElement("ul", {className: "breadcrumb", style: {margin: "0", marginTop: "60px"}}, 
 					React.createElement("li", null, React.createElement("a", {href: "javascript:void(0);", onClick: this.clickBreadCrumb}, "Home")), 
 
-					React.createElement("li", null, React.createElement("a", {href: "javascript:void(0);"}, "Breaking News"))
+					React.createElement("li", null, React.createElement("a", {href: "javascript:void(0);", onClick: this.clickBreadCrumb}, "Breaking News"))
 				), 
 				React.createElement("h1", {className: "story_headline"}, this.state.title), 
 				React.createElement("p", {className: "story_author", dangerouslySetInnerHTML: {__html: this.state.byline}}), 

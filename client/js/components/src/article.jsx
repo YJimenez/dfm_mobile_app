@@ -15,10 +15,10 @@ Article = React.createClass({
 	render : function() {
 		return (
 			<div className="story_content">
-				<ul className="breadcrumb">
+				<ul className="breadcrumb" style={{margin: "0", marginTop: "60px"}}>
 					<li><a href="javascript:void(0);" onClick={this.clickBreadCrumb}>Home</a></li>
 
-					<li><a href="javascript:void(0);">Breaking News</a></li>
+					<li><a href="javascript:void(0);" onClick={this.clickBreadCrumb}>Breaking News</a></li>
 				</ul>
 				<h1 className="story_headline">{this.state.title}</h1>
 				<p className="story_author" dangerouslySetInnerHTML={{__html: this.state.byline}} />
