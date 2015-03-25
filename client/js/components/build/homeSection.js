@@ -1,11 +1,17 @@
 SectionFront = React.createClass({displayName: "SectionFront",
-	mixins: [ReactMeteor.Mixin],
+	/*mixins: [ReactMeteor.Mixin],
 
 	startMeteorSubscriptions: function() {
 		Meteor.subscribe("feeds");
 	},
 
 	getMeteorState: function() {
+		return {
+			feeds: Feeds.find().fetch()
+		}
+	},*/
+	
+	getInitialState : function() {
 		return {
 			feeds: Feeds.find().fetch()
 		}
@@ -29,7 +35,7 @@ SectionFront = React.createClass({displayName: "SectionFront",
 				)
 			);
 		}
-		else return null;
+		else return React.createElement("p", null, "No feeds");
 	}
 
 });

@@ -1,7 +1,10 @@
-Meteor.publish('feeds');
+Meteor.publish('feeds', function(){
+	return Feeds.find();
+});
+Meteor.publish('articles', function(){
+	return Articles.find();
+});
 	
-//console.log({foo : "woo", methodN : function(){}});
-
 /*HTTP.get('http://delivery.digitalfirstmedia.com/ConvergencePublisher/?format=genericxml2spreed&uri=http://rss.denverpost.com/mngi/rss/CustomRssServlet/36/237705.xml', [], function(error, result){
 	//console.log(result.content);
 	xml2js.parseString(result.content, function (err, result) {
@@ -9,6 +12,8 @@ Meteor.publish('feeds');
 	});
 	
 });*/
+
+//console.log(Feeds.find().fetch());
 
 Meteor.methods({
 	
@@ -57,6 +62,7 @@ Meteor.methods({
 						}
 					}
 					else {
+						console.log(error);
 						error = true;
 					}
 				});
