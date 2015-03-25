@@ -12,6 +12,10 @@ Article = React.createClass({displayName: "Article",
 		React.render(React.createElement(SectionFront, null), document.getElementById('the-content'));
 	},
 	
+	componentWillMount : function(){
+		document.getElementById('home').scrollTop = 0;
+	},
+	
 	render : function() {
 		return (
 			React.createElement("div", {className: "story_content"}, 
