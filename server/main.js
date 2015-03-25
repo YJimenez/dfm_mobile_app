@@ -70,7 +70,7 @@ Meteor.methods({
 		var articleDocument = {};
 		HTTP.get(url, [], function(error, result){
 			if (!error) {
-				articleDocument = {created: Date.now(), id: id, data: result.content}
+				articleDocument = {created: Date.now(), id: id, data: JSON.parse(result.content)};
 				if (!Articles.find({id : id}).fetch().length) {
 					Articles.insert(articleDocument);
 				}
