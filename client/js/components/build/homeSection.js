@@ -16,11 +16,16 @@ SectionFront = React.createClass({displayName: "SectionFront",
 		if (this.state.feeds.length) {
 			feeds = this.state.feeds[0].feeds;
 			return (
-				React.createElement("ul", {id: "xLister", className: "list Xul"}, 
-					feeds.map(function(story, i){
-						Meteor.call('getArticle', story.id);
-						return React.createElement(SectionItem, {story: story, key: i});
-					})
+				React.createElement("div", null, 
+					React.createElement("div", {className: "list_header"}, 
+						"Breaking News"
+					), 
+					React.createElement("ul", {id: "xLister", className: "list Xul"}, 
+						feeds.map(function(story, i){
+							Meteor.call('getArticle', story.id);
+							return React.createElement(SectionItem, {story: story, key: i});
+						})
+					)
 				)
 			);
 		}
@@ -30,10 +35,15 @@ SectionFront = React.createClass({displayName: "SectionFront",
 });
 
 SectionItem = React.createClass({displayName: "SectionItem",
+	
+	clickArticle : function() {
+		React.render(React.createElement(Article, {id: this.props.story.id}), document.getElementById('the-content'));
+	},
+	
 	render : function(){
 
 		return (
-			React.createElement("li", {className: "Xli", style: {overflow: "hidden"}}, 
+			React.createElement("li", {className: "Xli", style: {overflow: "hidden"}, onClick: this.clickArticle}, 
 				React.createElement("div", {className: "list_story_image", style: {backgroundImage : "url(" + this.props.story.image + ")", backgroundSize: "cover"}}), 
 
 				React.createElement("div", {className: "list_story_title"}, this.props.story.title), 

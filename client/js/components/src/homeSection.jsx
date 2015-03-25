@@ -16,12 +16,17 @@ SectionFront = React.createClass({
 		if (this.state.feeds.length) {
 			feeds = this.state.feeds[0].feeds;
 			return (
-				<ul id="xLister" className="list Xul">
-					{feeds.map(function(story, i){
-						Meteor.call('getArticle', story.id);
-						return <SectionItem story={story} key={i}/>;
-					})}
-				</ul>
+				<div>
+					<div className="list_header">
+						Breaking News
+					</div>
+					<ul id="xLister" className="list Xul">
+						{feeds.map(function(story, i){
+							Meteor.call('getArticle', story.id);
+							return <SectionItem story={story} key={i}/>;
+						})}
+					</ul>
+				</div>
 			);
 		}
 		else return null;
@@ -30,10 +35,15 @@ SectionFront = React.createClass({
 });
 
 SectionItem = React.createClass({
+	
+	clickArticle : function() {
+		React.render(<Article id={this.props.story.id} />, document.getElementById('the-content'));
+	},
+	
 	render : function(){
 
 		return (
-			<li className="Xli" style={{overflow: "hidden"}}>
+			<li className="Xli" style={{overflow: "hidden"}} onClick={this.clickArticle}>
 				<div className="list_story_image" style={{backgroundImage : "url(" + this.props.story.image + ")", backgroundSize: "cover"}}></div>
 
 				<div className="list_story_title">{this.props.story.title}</div>
