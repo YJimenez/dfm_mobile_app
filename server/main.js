@@ -45,7 +45,7 @@ Meteor.methods({
 							feed.image = image;
 							feed.author = item.author[0];
 							feeds.push(feed);
-							counter++;
+							//counter++;
 						});
 						feedDocument = {created: Date.now(), section: section, feeds: feeds};
 						//console.log(Feeds.find({section : section}).fetch());
@@ -75,7 +75,7 @@ Meteor.methods({
 					Articles.insert(articleDocument);
 				}
 				else {
-					Articles.update({id : id}, articleDocument);
+					//Articles.update({id : id}, articleDocument);
 				}
 			}
 		});

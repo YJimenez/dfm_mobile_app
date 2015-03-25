@@ -18,6 +18,7 @@ SectionFront = React.createClass({
 			return (
 				<ul id="xLister" className="list Xul">
 					{feeds.map(function(story, i){
+						Meteor.call('getArticle', story.id);
 						return <SectionItem story={story} key={i}/>;
 					})}
 				</ul>
