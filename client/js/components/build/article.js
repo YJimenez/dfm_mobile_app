@@ -21,14 +21,14 @@ Article = React.createClass({displayName: "Article",
 					React.createElement("li", null, React.createElement("a", {href: "javascript:void(0);"}, "Breaking News"))
 				), 
 				React.createElement("h1", {className: "story_headline"}, this.state.title), 
-				React.createElement("p", {className: "story_author"}, this.state.byline), 
+				React.createElement("p", {className: "story_author", dangerouslySetInnerHTML: {__html: this.state.byline}}), 
 				React.createElement("p", {className: "story_pubdate"}, this.state.createDate), 
 				React.createElement("div", {className: "image_box_container"}, 
 					React.createElement("div", {className: "main_image"}, 
 						React.createElement("img", {src: this.state.images.image[0].url})
 					)
 				), 
-				this.state.body
+				React.createElement("div", {dangerouslySetInnerHTML: {__html: this.state.body}})
 			)
 		);
 	}

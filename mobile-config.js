@@ -1,6 +1,1 @@
-App.accessRule(
-    "http://*",
-    {
-        launchExternal: false
-    }
-);
+App.accessRule("http://*", {launchExternal: false});
