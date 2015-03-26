@@ -27,8 +27,9 @@
 	width: 300px;
 }
 
-
-/*-webkit-overflow-scrolling: touch;*/
+#dfm_mobile > div {
+	-webkit-overflow-scrolling: touch;
+}
 
 body .content {
 	background-color: #FFF;
