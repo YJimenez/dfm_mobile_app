@@ -49,7 +49,9 @@ Meteor.methods({
 							//feed.meta = item.meta;
 							feed.image = image;
 							feed.author = item.author[0];
-							feeds.push(feed);
+							if (feed.id) {
+								feeds.push(feed);
+							}
 							//counter++;
 						});
 						feedDocument = {created: Date.now(), section: section, feeds: feeds};
@@ -62,7 +64,7 @@ Meteor.methods({
 						}
 					}
 					else {
-						console.log(error);
+						//console.log(error);
 						error = true;
 					}
 				});
@@ -91,12 +93,18 @@ Meteor.methods({
 
 Utils = {
 	thumbnailUrl : function(url){
-		return url.replace(/\.jpg/, '_100.jpg');
+		if (url) {
+			return url.replace(/\.jpg/, '_100.jpg');
+		}
+		else return '';
 	},
 	
 	feedId : function(url) {
 		if (url) {
-			return url.match(/ci_(\d+)/)[1];
+			if (url.match(/ci_(\d+)/)) {
+				return url.match(/ci_(\d+)/)[1];
+			}
+			else return '';
 		}
 	}
 }
