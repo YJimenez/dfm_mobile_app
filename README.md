@@ -1,5 +1,5 @@
 ###To run project on ios
-Install xcode
+Install Xcode
 
 Open up your Terminal.app
 
@@ -18,6 +18,29 @@ Run the app
 cd dfm_mobile_app
 meteor run ios
 ```
+
+###To run project on Android
+
+Once you've followed the "Download this repo" in the iOS instructions above and are in the project folder
+
+Run
+
+```
+meteor install-sdk android
+```
+
+Follow any directions issues after the SDK is installed (adding haxm)
+
+Run the app
+
+```
+meteor run android
+```
+
+
+Useful instructions here:
+
+https://github.com/meteor/meteor/wiki/Meteor-Cordova-Phonegap-integration
 
 
 ###To compile jsx files

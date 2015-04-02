@@ -5,5 +5,8 @@ App.accessRule("http://www.denverpost.com/*", {launchExternal: false});
 
 App.icons({
 'iphone': 'public/dp.jpeg',
-'iphone_2x': 'public/dp.jpeg'
+'iphone_2x': 'public/dp.jpeg',
+
+
+'android_hdpi': 'public/dp.jpeg'
 });
