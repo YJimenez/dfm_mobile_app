@@ -29,7 +29,7 @@ Run
 meteor install-sdk android
 ```
 
-Follow any directions issues after the SDK is installed (adding haxm)
+Follow any directions issued after the SDK is installed (adding haxm)
 
 Run the app
 
